@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="hi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>संपर्क / संपर्क विवरण — राजकीय उच्च माध्यमिक विद्यालय, साईवाड़</title>
+  <link rel="stylesheet" href="style.css"> <!-- आपकी मुख्य CSS -->
+  <style>
+    /* Contact page specific styles (colored) */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    header {
+      background: #2563eb;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    nav {
+      background: #1e40af;
+      padding: 10px;
+      text-align: center;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-size: 18px;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      max-width: 990px;
+      margin: 22px auto;
+      padding: 0 16px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 360px;
+      gap: 18px;
+      align-items: start;
+    }
+
+    /* Form card */
+    .card {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 18px;
+      box-shadow: 0 8px 24px rgba(8, 51, 68, 0.06);
+    }
+
+    form.contact-form {
+      display: grid;
+      gap: 12px;
+    }
+
+    .row {
+      display:flex;
+      gap:10px;
+    }
+
+    .field {
+      display:flex;
+      flex-direction:column;
+    }
+
+    input[type="text"], input[type="email"], input[type="tel"], textarea, select {
+      padding: 10px 12px;
+      border: 1px solid #d1e9ff;
+      border-radius: 8px;
+      font-size: 15px;
+      outline: none;
+    }
+    input:focus, textarea:focus, select:focus {
+      border-color: #0b69d8;
+      box-shadow: 0 4px 14px rgba(11,105,216,0.12);
+    }
+    textarea { min-height: 120px; resize: vertical; }
+
+    .muted { color: #516b76; font-size: 14px; }
+
+    /* Submit button */
+    button.submit-btn {
+      background: linear-gradient(90deg,#06b6d4,#0b69d8);
+      color: white;
+      border: none;
+      padding: 12px 16px;
+      font-weight: 700;
+      border-radius: 10px;
+      cursor: pointer;
+      box-shadow: 0 6px 18px rgba(11,105,216,0.18);
+    }
+    button.submit-btn:hover { transform: translateY(-2px); }
+
+    /* Contact details sidebar */
+    .contact-info h3 { margin: 0 0 8px 0; color: #0b69d8; }
+    .info-row { display:flex; gap:10px; margin:8px 0; align-items:center; }
+    .info-row .icon {
+      width:42px; height:42px; border-radius:8px;
+      background: linear-gradient(90deg,#e6f6ff,#dbeafe);
+      display:flex; align-items:center; justify-content:center;
+      font-weight:700; color:#0b69d8;
+    }
+    .card.small { padding:14px; }
+
+    .success {
+      background: #dcfce7;
+      color: #065f46;
+      padding:10px 12px;
+      border-radius:8px;
+      display: none;
+      margin-top:8px;
+    }
+
+    footer.page-footer {
+      text-align:center;
+      color:#234;
+      margin:28px 0 60px;
+      font-size:14px;
+    }
+
+    @media (max-width:920px) {
+      .grid { grid-template-columns: 1fr; }
+      .container { padding-bottom: 40px; }
+    }
+  </style>
+</head>
+<body>
+  <h1>संपर्क / संपर्क विवरण</h1>
+    <p>राजकीय उच्च माध्यमिक विद्यालय, साईवाड़ — हमें लिखें या कॉल करें</p>
+  </header>
+
+  <nav>
+    <a href="index.html">मुख्य पृष्ठ</a>
+    <a href="staff.html">स्टाफ</a>
+    <a href="students.html">विद्यार्थी</a>
+    <a href="about.html">हमारे बारे में</a>
+</nav>
+
+  <div class="container">
+    <div class="grid">
+      <!-- Left: Form -->
+      <div>
+        <div class="card">
+          <h2>हमसे संपर्क करें</h2>
+          <p class="muted">कृपया नीचे अपना विवरण भरें — हम जल्द ही आपसे संपर्क करेंगे।</p>
+
+          <form id="contactForm" class="contact-form" autocomplete="off">
+            <div class="row">
+              <div class="field" style="flex:1">
+                <label>नाम <span class="muted">*</span></label>
+                <input type="text" id="name" placeholder="आपका नाम" required>
+              </div>
+              <div class="field" style="width:150px">
+                <label>कक्षा (यदि छात्र)</label>
+                <select id="classOpt">
+                  <option value="">— चुनें —</option>
+                  <option>6</option><option>7</option><option>8</option><option>9</option><option>10</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="field" style="flex:1">
+                <label>फ़ोन नंबर <span class="muted">*</span></label>
+                <input type="tel" id="phone" placeholder="10-आंकड़े फ़ोन / मोबाइल" required>
+              </div>
+              <div class="field" style="flex:1">
+                <label>ईमेल</label>
+                <input type="email" id="email" placeholder="आपका ईमेल (यदि है)">
+              </div>
+            </div>
+
+            <div class="field">
+              <label>विषय</label>
+              <input type="text" id="subject" placeholder="संदेश का विषय">
+            </div>
+
+            <div class="field">
+              <label>संदेश <span class="muted">*</span></label>
+              <textarea id="message" placeholder="अपना संदेश यहाँ लिखें" required></textarea>
+            </div>
+
+            <div style="display:flex;gap:10px;align-items:center;margin-top:6px">
+              <button type="submit" class="submit-btn">संदेश भेजें</button>
+              <div id="submitSuccess" class="success">धन्यवाद! आपका संदेश भेज दिया गया है।</div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- Right: Contact information -->
+      <aside>
+        <div class="card small contact-info">
+          <h3>विद्यालय संपर्क विवरण</h3>
+
+          <div class="info-row">
+            <div class="icon">प्र</div>
+            <div>
+              <div style="font-weight:700">प्राचार्य</div>
+              <div class="muted">श्री प्रहलाद सहाय चांदोलिया</div>
+            </div>
+          </div>
+
+          <div class="info-row">
+            <div class="icon">📞</div>
+            <div>
+              <div style="font-weight:700">फोन</div>
+              <div class="muted">+91 9828293766</div>
+            </div>
+          </div>
+
+          <div class="info-row">
+            <div class="icon">✉️</div>
+            <div>
+              <div style="font-weight:700">ईमेल</div>
+              <div class="muted">bndgssss10034@gmail.com</div>
+            </div>
+          </div>
+
+          <div class="info-row">
+            <div class="icon">📍</div>
+            <div>
+              <div style="font-weight:700">पता</div>
+              <div class="muted">राजकीय उच्च माध्यमिक विद्यालय, साईवाड़</div>
+            </div>
+          </div>
+
+          <hr style="border:none;height:1px;background:#eef2ff;margin:12px 0">
+
+          <div class="muted" style="font-size:13px">
+            कार्यालय समय: सोमवार—शनिवार , 7:00 AM — 1:00 PM<br>
+            प्रधानाचार्य से मिलने हेतु कृपया पूर्वानुमति लें।
+          </div>
+        </div>
+      </aside>
+    </div> <!-- grid -->
+  </div> <!-- container -->
+
+  <footer class="page-footer">
+    © <span id="yr"></span> राजकीय उच्च माध्यमिक विद्यालय, साईवाड़ — सभी अधिकार सुरक्षित
+  </footer>
+   <script>
+    document.getElementById('yr').innerText = new Date().getFullYear();
+
+    const form = document.getElementById('contactForm');
+    const successEl = document.getElementById('submitSuccess');
+
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+
+      // Basic validation
+      const name = document.getElementById('name').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const subject = document.getElementById('subject').value.trim() || 'संपर्क फ़ॉर्म संदेश';
+      const message = document.getElementById('message').value.trim();
+      const classOpt = document.getElementById('classOpt').value;
+
+      if(!name || !phone || !message) {
+        alert('कृपया नाम, फ़ोन और संदेश ज़रूर भरें।');
+        return;
+      }
+
+      // Show success message
+      successEl.style.display = 'block';
+      setTimeout(()=>{ successEl.style.display = 'none'; }, 4000);
+
+      // Open mail client (optional) — change email address as needed
+      const mailTo = 'school@example.com';
+      const mailSubject = encodeURIComponent(subject);
+      const mailBody = encodeURIComponent(
+        Name: ${name}\nPhone: ${phone}\nEmail: ${email}\nClass: ${classOpt}\n\nMessage:\n${message}
+      );
+      // Uncomment next line if you want mail client to open
+      // window.location.href = mailto:${mailTo}?subject=${mailSubject}&body=${mailBody};
+
+      // Clear form
+      form.reset();
+    });
+  </script>
+</body>
+</html>

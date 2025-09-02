@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <title>मेरे स्कूल की वेबसाइट</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    header {
+      background: #2563eb;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    nav {
+      background: #1e40af;
+      padding: 10px;
+      text-align: center;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-size: 18px;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    /* === स्लाइडर स्टाइल === */
+    .slider {
+      width: 100%;
+      height: 500px; /* लगभग फुल-साइज */
+      position: relative;
+      overflow: hidden;
+    }
+
+    .slides {
+      display: flex;
+      width: 400%; /* 4 इमेज */
+      height: 100%;
+      animation: slide 16s infinite;
+    }
+
+    .slides img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    @keyframes slide {
+      0%   { transform: translateX(0%); }
+      20%  { transform: translateX(0%); }
+      25%  { transform: translateX(-100%); }
+      45%  { transform: translateX(-100%); }
+      50%  { transform: translateX(-200%); }
+      70%  { transform: translateX(-200%); }
+      75%  { transform: translateX(-300%); }
+      95%  { transform: translateX(-300%); }
+      100% { transform: translateX(0%); }
+    }
+
+    main {
+      padding: 20px;
+      text-align: center;
+    }
+
+    footer {
+      background: #1e3a8a;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>मेरे स्कूल में आपका स्वागत है</h1>
+  </header>
+
+  <nav>
+    <a href="index.html">मुख्य पृष्ठ</a>
+    <a href="staff.html">स्टाफ</a>
+    <a href="students.html">विद्यार्थी</a>
+    <a href="contact.html">संपर्क करें</a>
+  </nav>
+
+
+  <main>
+    <h2>हमारे विद्यालय के बारे में</h2>
+    <p>राजकीय उच्च माध्यमिक विद्यालय, साईवाड़ की स्थापना XXXX में हुई। विद्यालय का उद्देश्य शिक्षा, अनुशासन और सर्वांगीण विकास है।</p>
+  </main>
+
+  <footer>
+    © 2025 राजकीय उच्च माध्यमिक विद्यालय, Saiwad
+  </footer>
+
+
+</body>
+</html>

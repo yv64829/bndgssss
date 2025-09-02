@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <title>स्टाफ</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Page Background */
+    
+     body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    header {
+      background: #2563eb;
+      color: white;
+      padding: 1px;
+      text-align: center;
+    }
+
+    nav {
+      background: #1e40af;
+      padding: 20px;
+      text-align: center;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 15px;
+      font-size: 18px;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .staff-display {
+      text-align: center;
+      margin: 20px auto;
+      position: relative;
+      width: 250px;
+    }
+
+    .staff-display img {
+      width: 220px;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 15px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+      opacity: 0;
+      transition: opacity 1s ease-in-out; /* Transition effect */
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+    }
+
+    .staff-display img.active {
+      opacity: 1;
+      position: relative;
+    }
+
+    .staff-display p {
+      font-size: 20px;
+      font-weight: bold;
+      margin-top: 25px;
+      color: #1e3a8a;
+    }
+
+    .controls {
+      margin: 20px;
+      text-align: center;
+    }
+
+    select {
+      padding: 8px 16px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: 1px solid #1e3a8a;
+      outline: none;
+    }
+    main {
+      padding: 20px;
+      text-align: center;
+    }
+
+    footer {
+      background: #1e3a8a;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>विद्यालय स्टाफ</h1>
+    <nav>
+    <a href="index.html">मुख्य पृष्ठ</a>
+    <a href="students.html">विद्यार्थी</a>
+    <a href="about.html">हमारे बारे में</a>
+    <a href="contact.html">संपर्क करें</a>
+  </nav>
+  </header>
+
+
+  <main>
+    <!-- Category Select -->
+    <div class="controls">
+      <label for="category"><b>श्रेणी चुनें:</b> </label>
+      <select id="category">
+        <option value="">-- श्रेणी चुनें --</option>
+        <option value="current">वर्तमान स्टाफ</option>
+        <option value="former">पूर्व स्टाफ</option>
+      </select>
+    </div>
+
+    <!-- Staff Display -->
+    <div class="staff-display">
+      <img id="staffImage" src="" alt="Staff Photo" style="display:none;">
+      <p id="staffName"></p>
+    </div>
+  </main>
+
+  <script>
+    // Staff Data (Category-wise)
+    const staffData = {
+      "current": [
+        { name: "श्री प्रहलाद सहाय चांदोलिया  (प्राचार्य)", img: "images/img1.jpeg" },
+        { name: "श्रीमती सीता मीणा(उप प्राचार्य)", img: "images/img2.jpg" },
+        { name: "श्री तेजपाल यादव      (व्याख्याता)", img: "images/img3.jpg" },
+        { name: "श्री राम कुमार कुमावत  (व्याख्याता)", img: "images/img4.jpg" },
+        { name: "श्री दया शंकर अग्रवाल  (व्याख्याता)", img: "images/img5.jpg" },
+        { name: "श्रीमती खुशबू गुप्ता (व्याख्याता)", img: "images/img6.jpg" },
+        { name: "श्री योगेश कुमार शर्मा (व्याख्याता)", img: "images/img7.jpg" },
+        { name: "श्री सुभय सिंह पलसानिया  (व्याख्याता)", img: "images/img8.jpg" },
+        { name: "श्रीमती इंद्रा बंसल (वरिष्ठ अध्यापक)", img: "images/img9.jpg" },
+        { name: "श्री भवानी शंकर मीणा  (वरिष्ठ अध्यापक)", img: "images/img10.jpg" },
+        { name: "श्री अजय शर्मा (L2 अध्यापक)", img: "images/img11.jpg" },
+        { name: "श्री रवि कुमार गोदिका (L2 अध्यापक)", img: "images/img12.jpg" },
+        { name: "श्री कानाराम यादव  (L1 अध्यापक)", img: "images/img13.jpg" },
+        { name: "सुश्री करिश्मा चौधरी (L1 अध्यापक)", img: "images/img14.jpg" },
+        { name: "श्री अभिषेक शर्मा (प्रयोगशाला सहायक)", img: "images/img15.jpg" },
+        { name: "श्री गजेंद्र सिंह यादव (प्रयोगशाला सहायक)", img: "images/img16.jpg" },
+        { name: "श्री योगेश वर्मा      (कम्प्युटर अनुदेशक)", img: "images/img17.jpeg" },
+        { name: "श्री अर्जुन लाल कुम्हार (पंचायत शिक्षक)", img: "images/img18.jpg" },
+        { name: "श्रीमती सरिता शर्मा  (पंचायत शिक्षक)", img: "images/img19.jpg" },
+        { name: "श्रीमती गीता देवी ", img: "images/img20.jpg" },
+        { name: "श्री महेंद्र  ", img: "images/img21.jpg" }
+      ],
+      "former": [
+        { name: "श्री तुलसी राम रेगर (पूर्व व्याख्याता)", img: "images/img25.jpg" },
+        { name: "श्री राजेन्द्र कुमार लाखीवाल (पूर्व अतिरिक्त प्रशासनिक अधिकारी)", img: "images/img26.jpg" },
+        { name: "श्री सतीश चांदोलिया (पूर्व अतिरिक्त प्रशासनिक अधिकारी)", img: "images/img27.jpg" },
+        { name: "श्री विमल कुमार सैनी (पूर्व प्रयोगशाला सहायक)", img: "images/img28.jpg" },
+        { name: "श्री कैलाश चंद चौधरी (पूर्व व्याख्याता)", img: "images/img29.jpg" }
+      ]
+    };
+
+    let currentCategory = "";
+    let currentIndex = 0;
+    let slideInterval;
+
+    const categorySelect = document.getElementById("category");
+    const staffImage = document.getElementById("staffImage");
+    const staffName = document.getElementById("staffName");
+
+    // जब Category Select हो
+    categorySelect.addEventListener("change", function() {
+      currentCategory = this.value;
+      currentIndex = 0;
+      clearInterval(slideInterval); // पहले का interval हटाओ
+      showStaff();
+
+      // हर 3 सेकंड बाद अगली फोटो
+      slideInterval = setInterval(nextStaff, 3000);
+    });
+
+    function showStaff() {
+      if (currentCategory && staffData[currentCategory]) {
+        let staff = staffData[currentCategory][currentIndex];
+        staffImage.style.display = "block";
+
+        // transition के लिए पहले opacity हटाओ
+        staffImage.classList.remove("active");
+        setTimeout(() => {
+          staffImage.src = staff.img;
+          staffName.textContent = staff.name;
+          staffImage.classList.add("active");
+        }, 100); 
+      } else {
+        staffImage.style.display = "none";
+        staffName.textContent = "";
+      }
+    }
+
+    function nextStaff() {
+      if (currentCategory && staffData[currentCategory]) {
+        currentIndex = (currentIndex + 1) % staffData[currentCategory].length;
+        showStaff();
+      }
+    }
+  </script>
+</body>
+</html>
