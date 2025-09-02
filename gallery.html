@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <title>विद्यार्थी सूची</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #fef3c7, #fcd34d); /* पीला-ऑरेंज ग्रेडिएंट */
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    header {
+      background: #b45309;
+      color: white;
+      padding: 20px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+
+    h1 {
+      margin: 0;
+    }
+
+    .controls {
+      margin: 20px;
+      display: flex;
+      gap: 15px;
+    }
+
+    select {
+      padding: 8px 12px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: 1px solid #92400e;
+    }
+
+    table {
+      margin: 20px auto;
+      border-collapse: collapse;
+      width: 90%;
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: center;
+    }
+
+    th {
+      background: #f59e0b;
+      color: white;
+    }
+
+    tr:nth-child(even) {
+      background: #fef9c3;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>विद्यार्थी सूची</h1>
+  </header>
+<nav>
+    <a href="index.html">मुख्य पृष्ठ</a>
+    <a href="about.html">हमारे बारे में</a>
+    <a href="staff.html">स्टाफ</a>
+    <a href="students.html">विद्यार्थी</a>
+    <a href="contact.html">संपर्क करें</a>
+  </nav>
+  <main>
+    <!-- Controls -->
+    <div class="controls">
+      <label for="classSelect"><b>कक्षा चुनें:</b></label>
+      <select id="classSelect">
+        <option value="">-- कक्षा --</option>
+        <option value="class6">कक्षा 6</option>
+        <option value="class7">कक्षा 7</option>
+        <option value="class8">कक्षा 8</option>
+      </select>
+
+      <label for="sectionSelect"><b>अनुभाग चुनें:</b></label>
+      <select id="sectionSelect">
+        <option value="">-- अनुभाग --</option>
+        <option value="A">अनुभाग A</option>
+        <option value="B">अनुभाग B</option>
+      </select>
+    </div>
+
+    <!-- Students Table -->
+    <table id="studentsTable" style="display:none;">
+      <thead>
+        <tr>
+          <th>क्रम संख्या</th>
+          <th>छात्र का नाम</th>
+          <th>पिता का नाम</th>
+          <th>जन्म दिनांक</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </main>
+
+  <script>
+    // Student Data
+    const studentsData = {
+      "class6": {
+        "A": [
+          {id: 1, name: "राहुल शर्मा", father: "मोहन शर्मा", dob: "05-01-2012"},
+          {id: 2, name: "सीमा कुमारी", father: "अजय कुमार", dob: "14-03-2012"}
+        ],
+        "B": [
+          {id: 1, name: "सोनू सिंह", father: "राम सिंह", dob: "22-05-2012"},
+          {id: 2, name: "पूजा यादव", father: "सुरेश यादव", dob: "10-07-2012"}
+        ]
+      },
+      "class7": {
+        "A": [
+          {id: 1, name: "अंकित जैन", father: "महेश जैन", dob: "18-02-2011"}
+        ],
+        "B": [
+          {id: 1, name: "साक्षी चौधरी", father: "नरेश चौधरी", dob: "30-11-2011"}
+        ]
+      },
+      "class8": {
+        "A": [
+          {id: 1, name: "मोहित शर्मा", father: "सुरेश शर्मा", dob: "25-06-2010"}
+        ],
+        "B": [
+          {id: 1, name: "नेहा वर्मा", father: "अनिल वर्मा", dob: "19-09-2010"}
+        ]
+      }
+    };
+
+    const classSelect = document.getElementById("classSelect");
+    const sectionSelect = document.getElementById("sectionSelect");
+    const studentsTable = document.getElementById("studentsTable");
+    const tbody = studentsTable.querySelector("tbody");
+
+    function showStudents() {
+      const cls = classSelect.value;
+      const sec = sectionSelect.value;
+
+      if (cls && sec && studentsData[cls] && studentsData[cls][sec]) {
+        tbody.innerHTML = "";
+        studentsData[cls][sec].forEach(student => {
+          const row = `<tr>
+            <td>${student.id}</td>
+            <td>${student.name}</td>
+            <td>${student.father}</td>
+            <td>${student.dob}</td>
+          </tr>`;
+          tbody.innerHTML += row;
+        });
+        studentsTable.style.display = "table";
+      } else {
+        studentsTable.style.display = "none";
+      }
+    }
+
+    classSelect.addEventListener("change", showStudents);
+    sectionSelect.addEventListener("change", showStudents);
+  </script>
+</body>
+</html>

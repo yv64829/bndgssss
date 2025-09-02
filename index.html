@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <title>मेरे स्कूल की वेबसाइट</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    header {
+      background: #2563eb;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    nav {
+      background: #1e40af;
+      padding: 20px;
+      text-align: center;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-size: 18px;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    /* === स्लाइडर स्टाइल === */
+    .slider {
+      width: 100%;
+      height: 500px; /* लगभग फुल-साइज */
+      position: relative;
+      overflow: hidden;
+    }
+
+    .slides {
+      display: flex;
+      width: 400%; /* 4 इमेज */
+      height: 100%;
+      animation: slide 4s infinite;
+    }
+
+    .slides img {
+      position:absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      animation: fade 12s infinite;
+    }
+
+    .slides img:nth-child(1)
+    { animation-delay: 0s; }
+    .slides img:nth-child(2)
+    { animation-delay: 3s; }
+    .slides img:nth-child(3)
+    { animation-delay: 6s; }
+    .slides img:nth-child(4)
+    { animation-delay: 9s; }
+
+    @keyframes fade {
+      0%   { opacity: 0; }
+      5%   { opacity: 1; }
+      25%  { opacity: 1; }
+      30%  { opacity: 0; }
+      100% { opacity: 0; }
+    }
+
+    main {
+      padding: 20px;
+      text-align: center;
+    }
+
+    footer {
+      background: #1e3a8a;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 20px;
+    }
+    /* ये मेरा है */
+
+
+  </style>
+</head>
+<body>
+  <header>
+    <h1>बाबा नारायण दास राजकीय उच्च माध्यमिक विधालय साईवाड़ (218399)</h1>
+  </header>
+
+  <nav>
+    <a href="index.html">मुख्य पृष्ठ</a>
+    <a href="staff.html">स्टाफ</a>
+    <a href="students.html">विद्यार्थी</a>
+    <a href="about.html">हमारे बारे में</a>
+    <a href="contact.html">संपर्क करें</a>
+  </nav>
+
+  <!-- === स्लाइडर सेक्शन === -->
+  <div class="slider">
+    <div class="slides">
+      <img src="images/school1.jpeg" alt="स्कूल फोटो 1">
+      <img src="images/school2.jpeg" alt="स्कूल फोटो 2">
+      <img src="images/school3.jpeg" alt="स्कूल फोटो 3">
+      <img src="images/school4.jpeg" alt="स्कूल फोटो 4">
+    </div>
+  </div>
+
+  <main>
+
+    <h3><p>आज रामदेव जयंती का अवकाश  है।</p></h3>
+  </main>
+
+  <footer>
+    <p>कॉपीराइट © 2025 | मेरा स्कूल</p>
+  </footer>
+</body>
+</html>
